@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class cliente(models.Model):
+    
     nome = models.CharField(max_length=50)
     email = models.CharField(max_length=30)
     telefone = models.CharField(max_length=11)
