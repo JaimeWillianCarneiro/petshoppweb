@@ -5,8 +5,8 @@ class cliente(models.Model):
     
     nome = models.CharField(max_length=50)
     email = models.CharField(max_length=30)
-    telefone = models.CharField(max_length=11)
-    cpf = models.CharField(max_length=14)
+    telefone = models.IntegerField()
+    cpf = models.IntegerField()
     senha = models.CharField(max_length=12)
 
 
@@ -38,8 +38,8 @@ class Empresa(models.Model):
     
 
 class RecebePedido(models.Model):
-    class Meta:
-        unique_together = (('cdEmpresa', 'id_pedido'),)
+    # class Meta:
+    #     unique_together = (('cdEmpresa', 'id_pedido'),)
     cdEmpresa = models.ForeignKey(Empresa,  on_delete=models.CASCADE)
     id_pedido = models.ForeignKey(Pedido,  on_delete=models.CASCADE)
     
@@ -48,8 +48,8 @@ class Pagamento(models.Model):
     tipo = models.CharField(max_length=20)
    
 class FazPedido(models.Model):
-    class Meta:
-        unique_together = (('idCliente', 'idPedido'),)
+    # class Meta:
+    #     unique_together = (('idCliente', 'idPedido'),)
     idCliente = models.ForeignKey(cliente, on_delete=models.CASCADE)
     idPedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     idPagamento =    models.ForeignKey(Pagamento, on_delete=models.CASCADE)
@@ -73,3 +73,5 @@ class VendeProduto(models.Model):
 class OfereceServico(models.Model):
     Cod_servico = models.ForeignKey(Servico,on_delete=models.CASCADE )
     Cd_Empresa = models.ForeignKey(Empresa,on_delete=models.CASCADE )
+
+
