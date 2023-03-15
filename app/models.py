@@ -8,8 +8,8 @@ class cliente(models.Model):
     telefone = models.IntegerField()
     cpf = models.IntegerField()
     senha = models.CharField(max_length=12)
-    # def __str__(self):
-    #         return f"{self.nome}"   
+    def __str__(self):
+            return f"{self.nome}"   
 
 
 class animal(models.Model):
@@ -18,7 +18,7 @@ class animal(models.Model):
     Nome = models.CharField(max_length=50)
     sexo = models.CharField(max_length=10)
     def __str__(self):
-        return f"{self.raca}"
+        return f"{self.Nome}"
 
 class cartao(models.Model):
     n_cartao = models.IntegerField()
