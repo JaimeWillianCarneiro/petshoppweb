@@ -3,11 +3,13 @@ from django.db import models
 # Create your models here.
 class cliente(models.Model):
     
-    nome = models.CharField(max_length=50)
+    nome= models.CharField(max_length=50)
     email = models.CharField(max_length=30)
     telefone = models.IntegerField()
     cpf = models.IntegerField()
     senha = models.CharField(max_length=12)
+    # def __str__(self):
+    #         return f"{self.nome}"   
 
 
 class animal(models.Model):
@@ -15,6 +17,8 @@ class animal(models.Model):
     raca = models.CharField(max_length=30)
     Nome = models.CharField(max_length=50)
     sexo = models.CharField(max_length=10)
+    def __str__(self):
+        return f"{self.raca}"
 
 class cartao(models.Model):
     n_cartao = models.IntegerField()
@@ -22,7 +26,8 @@ class cartao(models.Model):
     idCliente = models.ForeignKey(cliente, on_delete=models.CASCADE)
     class Meta:
         constraints=[models.UniqueConstraint(fields=['n_cartao','idCliente'], name = 'unique_ncartao_idcliente_combination')]
-
+    def __str__(self):
+        return f"{self.n_cartao}"
 
 class Pedido(models.Model):
 	data = models.DateTimeField()
@@ -35,7 +40,8 @@ class Empresa(models.Model):
     endereco = models.CharField(max_length=300)
     cnpj = models.IntegerField()
     telefone = models.IntegerField()
-    
+    def __str__(self):
+        return f"{self.endereco}"
 
 class RecebePedido(models.Model):
     # class Meta:
