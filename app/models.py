@@ -28,7 +28,7 @@ class animal(models.Model):
     
     def __str__(self):
         return f"{self.Nome}"
-#OK 1/3
+#OK 
 class cartao(models.Model):
     n_cartao = models.IntegerField()
     bandeira = models.CharField(max_length=30)
