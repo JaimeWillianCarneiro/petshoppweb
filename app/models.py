@@ -56,7 +56,7 @@ class Empresa(models.Model):
         return f"{self.endereco}"
 
 
-#OK
+
 class RecebePedido(models.Model):
     # class Meta:
     #     unique_together = (('cdEmpresa', 'id_pedido'),)
@@ -69,6 +69,10 @@ class RecebePedido(models.Model):
 class Pagamento(models.Model):
     Data_pagamento = models.DateField()
     tipo = models.CharField(max_length=20)
+    def __str__(self):
+        return f"{self.tipo}"
+    
+    
    
 class FazPedido(models.Model):
     # class Meta:
