@@ -41,11 +41,13 @@ class cartao(models.Model):
 
 #OK
 class Pedido(models.Model):
-	data = models.DateTimeField()
-	Preco = models.FloatField()
-	Cod_servico = models.IntegerField()
-	Cod_Produto = models.IntegerField()
-
+    data = models.DateTimeField()
+    Preco = models.FloatField()
+    Cod_servico = models.IntegerField()
+    Cod_Produto = models.IntegerField()
+    
+    def __str__(self):
+        return f"{self.Cod_servico}-{self.Cod_Produto}--{self.Preco}--"
 
 #  OK
 class Empresa(models.Model):
@@ -62,6 +64,9 @@ class RecebePedido(models.Model):
     #     unique_together = (('cdEmpresa', 'id_pedido'),)
     cdEmpresa = models.ForeignKey(Empresa,  on_delete=models.CASCADE)
     id_pedido = models.ForeignKey(Pedido,  on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.cdEmpresa--self.id_pedido}"
 
 
 
@@ -80,12 +85,19 @@ class FazPedido(models.Model):
     idCliente = models.ForeignKey(cliente, on_delete=models.CASCADE)
     idPedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     idPagamento =    models.ForeignKey(Pagamento, on_delete=models.CASCADE)
-
+    def __str__(self):
+        return f"{self.idCliente--self.idPedido--self.idPagamento}"
+    
+    
 class Servico(models.Model):
     valor = models.FloatField()
     duracao = models.IntegerField()
     tipo = models.CharField(max_length=30)
     local = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f"{self.valor--self.duracao--self.tipo--self.local}"
+        
     
 class Produto(models.Model):
     nome = models.CharField(max_length=50)
