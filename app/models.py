@@ -1,6 +1,13 @@
 from django.db import models
 
 # Create your models here.
+SEX_CHOICES = (
+    ('easy', 'easy'),
+    ('medium', 'medium'),
+    ('hard', 'hard'),
+)
+
+#OK
 class cliente(models.Model):
     
     nome= models.CharField(max_length=50)
@@ -11,15 +18,17 @@ class cliente(models.Model):
     def __str__(self):
             return f"{self.nome}"   
 
-
+#OK
 class animal(models.Model):
     idCliente = models.ForeignKey(cliente, on_delete=models.CASCADE)
     raca = models.CharField(max_length=30)
     Nome = models.CharField(max_length=50)
-    sexo = models.CharField(max_length=10)
+    sexo = models.CharField(max_length=6, choices=SEX_CHOICES)
+    
+    
     def __str__(self):
         return f"{self.Nome}"
-
+#OK 1/3
 class cartao(models.Model):
     n_cartao = models.IntegerField()
     bandeira = models.CharField(max_length=30)
@@ -27,8 +36,10 @@ class cartao(models.Model):
     class Meta:
         constraints=[models.UniqueConstraint(fields=['n_cartao','idCliente'], name = 'unique_ncartao_idcliente_combination')]
     def __str__(self):
-        return f"{self.n_cartao}"
+        return f"{self.n_cartao}-{self.idCliente}"
 
+
+#OK
 class Pedido(models.Model):
 	data = models.DateTimeField()
 	Preco = models.FloatField()
@@ -36,6 +47,7 @@ class Pedido(models.Model):
 	Cod_Produto = models.IntegerField()
 
 
+#  OK
 class Empresa(models.Model):
     endereco = models.CharField(max_length=300)
     cnpj = models.IntegerField()
@@ -43,12 +55,17 @@ class Empresa(models.Model):
     def __str__(self):
         return f"{self.endereco}"
 
+
+#OK
 class RecebePedido(models.Model):
     # class Meta:
     #     unique_together = (('cdEmpresa', 'id_pedido'),)
     cdEmpresa = models.ForeignKey(Empresa,  on_delete=models.CASCADE)
     id_pedido = models.ForeignKey(Pedido,  on_delete=models.CASCADE)
-    
+
+
+
+# OK
 class Pagamento(models.Model):
     Data_pagamento = models.DateField()
     tipo = models.CharField(max_length=20)
