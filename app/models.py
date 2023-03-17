@@ -55,7 +55,7 @@ class Empresa(models.Model):
     cnpj = models.IntegerField()
     telefone = models.IntegerField()
     def __str__(self):
-        return f"{self.endereco}"
+        return f"{self.cnpj--self.endereco}"
 
 
 
@@ -85,8 +85,8 @@ class FazPedido(models.Model):
     idCliente = models.ForeignKey(cliente, on_delete=models.CASCADE)
     idPedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     idPagamento =    models.ForeignKey(Pagamento, on_delete=models.CASCADE)
-    def __str__(self):
-        return f"{self.idCliente--self.idPedido--self.idPagamento}"
+    # def __str__(self):
+    #      return f"{self.idCliente--self.idPedido--self.idPagamento}"
     
     
 class Servico(models.Model):
@@ -96,7 +96,7 @@ class Servico(models.Model):
     local = models.CharField(max_length=200)
 
     def __str__(self):
-        return f"{self.valor--self.duracao--self.tipo--self.local}"
+         return f"{self.tipo}"
         
     
 class Produto(models.Model):
@@ -104,6 +104,9 @@ class Produto(models.Model):
     especieDest= models.CharField(max_length=50)
     marca= models.CharField(max_length=50)
     quantidade = models.IntegerField()
+
+    def __str__(self):
+         return f"{self.nome }"
     
 class VendeProduto(models.Model):
     Cod_produto = models.ForeignKey(Produto,on_delete=models.CASCADE )
