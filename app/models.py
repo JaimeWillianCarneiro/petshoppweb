@@ -55,7 +55,7 @@ class Empresa(models.Model):
     cnpj = models.IntegerField()
     telefone = models.IntegerField()
     def __str__(self):
-        return f"{self.cnpj--self.endereco}"
+        return f"{self.cnpj}--{self.endereco}"
 
 
 

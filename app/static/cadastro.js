@@ -134,41 +134,41 @@ email.addEventListener('keyup', () => {
 
 
 
-function cadastrar(){
-  if(validNome && validUsuario && validSenha && validConfirmSenha&& validCell&&validEmail&&validCpf){
-    let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
+// function cadastrar(){
+//   if(validNome && validUsuario && validSenha && validConfirmSenha&& validCell&&validEmail&&validCpf){
+//     let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
     
-    listaUser.push(
-    {
-      nomeCad: nome.value,
-      userCad: usuario.value,
-      senhaCad: senha.value,
-      cpfCad: Cpf.value,
-      emailCad: email.value,
-      celularCad: cell.value
-    }
-    )
+//     listaUser.push(
+//     {
+//       nomeCad: nome.value,
+//       userCad: usuario.value,
+//       senhaCad: senha.value,
+//       cpfCad: Cpf.value,
+//       emailCad: email.value,
+//       celularCad: cell.value
+//     }
+//     )
     
-    localStorage.setItem('listaUser', JSON.stringify(listaUser))
+//     localStorage.setItem('listaUser', JSON.stringify(listaUser))
     
    
-    msgSuccess.setAttribute('style', 'display: block')
-    msgSuccess.innerHTML = '<strong>Cadastrando usuário...</strong>'
-    msgError.setAttribute('style', 'display: none')
-    msgError.innerHTML = ''
+//     msgSuccess.setAttribute('style', 'display: block')
+//     msgSuccess.innerHTML = '<strong>Cadastrando usuário...</strong>'
+//     msgError.setAttribute('style', 'display: none')
+//     msgError.innerHTML = ''
     
-    setTimeout(()=>{
-       window.location.href = 'signin.html'
-    }, 3000)
+//     setTimeout(()=>{
+//        window.location.href = 'signin.html'
+//     }, 3000)
   
     
-  } else {
-    msgError.setAttribute('style', 'display: block')
-    msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>'
-    msgSuccess.innerHTML = ''
-    msgSuccess.setAttribute('style', 'display: none')
-  }
-}
+//   } else {
+//     msgError.setAttribute('style', 'display: block')
+//     msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>'
+//     msgSuccess.innerHTML = ''
+//     msgSuccess.setAttribute('style', 'display: none')
+//   }
+// }
 
 btn.addEventListener('click', ()=>{
   let inputSenha = document.querySelector('#senha')

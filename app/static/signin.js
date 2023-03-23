@@ -26,19 +26,19 @@ function entrar(){
     senha: ''
   }
  
-  listaUser = JSON.parse(localStorage.getItem('listaUser'))
+  // listaUser = JSON.parse(localStorage.getItem('listaUser'))
  
-  listaUser.forEach((item) => {
-    if(usuario.value == item.userCad && senha.value == item.senhaCad){
+  // listaUser.forEach((item) => {
+  //   if(usuario.value == item.userCad && senha.value == item.senhaCad){
        
-      userValid = {
-         nome: item.nomeCad,
-         user: item.userCad,
-         senha: item.senhaCad
-       }
+  //     userValid = {
+  //        nome: item.nomeCad,
+  //        user: item.userCad,
+  //        senha: item.senhaCad
+  //      }
      
-    }
-  })
+  //   }
+  // })
    
   if(usuario.value == userValid.user && senha.value == userValid.senha){
     window.location.href = 'C:\Users\alunoifal\Downloads\petshop (1)\petshop\petshop\index.html'

@@ -10,18 +10,20 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  background-image: url(img/Cockatiel.jpg);
-  background-repeat: no-repeat;
+  /* background-image:  url("static/Cockatiel.jpg"); */
+
+ 
+  /* background-repeat: no-repeat;
   background-position: top left;
   background-size: 900px 100% ;
   background-attachment: fixed;
   background-position-y: top;
-  
+   */
 }
 
 .container {
   display: flex;
-  justify-content: right;
+  justify-content: center;
   margin-top: 50px;
   padding: 0 ;
   width: 100%;
@@ -29,12 +31,11 @@ body {
 
 .card {
   background-color: #ffffff80;
-  padding: 30px;
+  padding: 60px;
   border-radius: 4%;
   box-shadow: 3px 3px 1px 0px #00000060;
-  width: 300px;
-  margin-right: 200px;
-  margin-left: 200px;
+  margin-right: 800px;
+  margin-left: 800px;
 }
 
 h1{
